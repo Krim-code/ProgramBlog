@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="text-white body-font bg-gray-800">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-wrap w-full mb-20">
+        <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-white">
+            {{ category.title }}</h1>
+          <div class="h-1 w-20 bg-blue-500 rounded"></div>
+        </div>
+      </div>
+      <div class="flex flex-wrap -m-4 justify-center">
+       {% for post in posts %}  
+        <div class="xl:w-1/4 md:w-1/2 p-4">
+          <div class="bg-gray-900 p-6 rounded-lg overflow-hidden flex flex-col h-full">
+            <img class="h-40 rounded w-full object-cover object-center mb-6" src="{{ post.thumbnail.url }}" alt="content">
+            <h3 class="tracking-widest text-white text-xs font-medium title-font">
+              {{ post.subtitle }}</h3>
+            <a href="{% url 'post' post.slug %}" h2 class="rounded-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 text-lg text-blue-400 font-medium title-font mb-4">
+              {{ post.title }}</a>
+            <p class="leading-relaxed text-base mt-auto">
+              {{ post.overview }}</p>
+          </div>
+        </div>
+       {% endfor %}
+     
+      </div>
+    </div>
+</section>
+{% endblock content %}

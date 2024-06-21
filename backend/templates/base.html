@@ -1,0 +1,83 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-dark.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            type: 'type 2.7s ease-out .8s infinite alternate both',
+          },
+          keyframes: {
+            type: {
+              '0%': { transform: 'translateX(0ch)' },
+              '5%, 10%': { transform: 'translateX(1ch)' },
+              '15%, 20%': { transform: 'translateX(2ch)' },
+              '25%, 30%': { transform: 'translateX(3ch)' },
+              '35%, 40%': { transform: 'translateX(4ch)' },
+              '45%, 50%': { transform: 'translateX(5ch)' },
+              '55%, 60%': { transform: 'translateX(6ch)' },
+              '65%, 70%': { transform: 'translateX(7ch)' },
+              '75%, 80%': { transform: 'translateX(8ch)' },
+              '85%, 90%': { transform: 'translateX(9ch)' },
+              '95%, 100%': { transform: 'translateX(11ch)' },
+            },
+          },
+        }
+      }
+    }
+  </script>
+  <style>pre {
+    background-color: #1f2937; /* темно-синий */
+    color: #d1d5db; /* светло-серый */
+    padding: 1rem; /* внутренний отступ */
+    border-radius: 0.5rem; /* скругление углов */
+    overflow: auto; /* позволяет прокрутку при переполнении */
+}
+
+code {
+    background-color: #111827; /* чуть более темный */
+    color: #d1d5db; /* светло-серый */
+    padding: 0.25rem; /* внутренний отступ */
+    border-radius: 0.25rem; /* скругление углов */
+}</style>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body class="flex flex-col min-h-screen">
+    {% include "navbar.html" %}
+    <div class="flex-1 bg-gray-800">
+      {% block content %}
+      {% endblock content %}
+    
+    </div>
+   
+    {% include "footer.html" %}
+  <!-- <img src='{% static "img/dummy.jpg" %}'/> -->
+   
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+  <script>
+      // Инициализация подсветки
+      document.addEventListener('DOMContentLoaded', (event) => {
+          document.querySelectorAll('code').forEach((block) => {
+              console.log(block)
+              // Автоматическое определение языка и подсветка
+              hljs.highlightElement(block);
+          });
+      });
+  </script>
+
+  </body>
+</html>
+
+
+
